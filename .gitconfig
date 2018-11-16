@@ -1,0 +1,10 @@
+[user]
+	name = Sean.Wu
+	email = srw.leaven@gmail.com
+
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
