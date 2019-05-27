@@ -1,10 +1,7 @@
 [user]
-	name = Sean.Wu
-	email = srw.leaven@gmail.com
-
-[diff]
-    tool = meld
-[difftool]
-    prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+	name = sr.wu
+	email = sr.wu@deltaww.com
+[color]
+	ui = auto
+[core]
+	editor = vim
