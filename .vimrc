@@ -1,36 +1,57 @@
-" <leader>: `,`
-" C: Ctrl
-" nmap: nomral mode keymapping
+set t_Co=256
+set nocompatible
+filetype off
+set number
+set incsearch
+set hlsearch
+set ruler
+set showmatch
 
-" vim-plug
-call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'shougo/unite.vim'
-call plug#end()
-
-
+set ignorecase
+set smartcase
 
 syntax on
-set ai
-set ruler
-set hlsearch
-set incsearch
-set smartindent
-set cursorline
-" case insensitive.
-set ic
+
+" Vundle stuff
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'majutsushi/tagbar'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'tomasr/molokai'
+Plugin 'preservim/nerdtree'
+Plugin 'google/vim-searchindex'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+filetype plugin indent on
+
+" vim-plug
+"call plug#begin('~/.vim/plugged')
+
+"Plug 'vim-airline/vim-airline'
+"Plug 'majutsushi/tagbar'
+
+"call plug#end()
 
 
-"################## Not Verified Yet ########## start
-"Mapping F5 to refresh ctag & cscope
-autocmd FileType c,cpp nmap <silent><F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . && cscope -bR<CR>
+nmap <F8> :TagbarToggle<CR>
+nmap <F9> :Files<CR>
+nnoremap <F5> :match StatusLineTerm /<C-R><C-W>/<CR>
+nmap ,n :NERDTreeFind<CR>
 
-"Mapping F6 to make CCTree load cscope db
-nmap <silent><F6> :CCTreeLoadDB cscope.out<CR>
+"colorscheme darkblue
+colorscheme gruvbox
+set background=dark
 
-"################## Not Verified Yet ########## end
 
-"Mapping F9 to open TagList
-map <f9> :Tlist<CR>
-set number
- 
+"colorscheme molokai
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+
