@@ -1,0 +1,55 @@
+set number
+set relativenumber
+set incsearch
+set hlsearch
+set ruler
+set showmatch
+set hidden
+set showcmd
+set backup
+set ai
+set si
+set scrolloff=5
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set foldmethod=syntax
+set wildmenu
+
+set ignorecase
+set smartcase
+
+set fileencodings=cp932,sjis,euc-jp,utf-8
+
+" Fix backspace
+set backspace=indent,eol,start
+
+syntax on
+
+" Plug-In stuff
+call plug#begin()
+Plug 'andymass/vim-matchup'
+Plug 'mattia72/vim-delphi'
+Plug 'tomasr/molokai'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'bfrg/vim-cpp-modern'
+Plug 'majutsushi/tagbar'
+Plug 'preservim/nerdtree'
+
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+call plug#end()
+
+nmap <F8> :TagbarToggle<CR>
+nmap <F9> :Files<CR>
+" Highlight Word
+nnoremap <F5> :match StatusLineTerm /<C-R><C-W>/<CR>
+" Grep current word
+nnoremap <F11> :Rg <C-R><C-W><CR>
+nmap ,n :NERDTreeFind<CR>
+
+" Colorscheme
+colorscheme molokai
+set background=dark
+
